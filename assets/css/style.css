@@ -1,0 +1,43 @@
+/* mobil formatting starting with iphon 5 smallest pixel res. */
+@media only screen and (max-width: 320px) {
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .headding {
+        height: ;
+        background-color: silver;
+    }
+
+    h1 {
+        font-size: 25px;
+        font-family: 'Cinzel', serif;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .introduction {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hide {
+    display: none;
+}
