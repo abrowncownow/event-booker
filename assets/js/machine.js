@@ -1,6 +1,6 @@
 //declaire variables
-const OWAPIKey = "f64ce8261e64b0aec0696a661e821205"
-var city = window.prompt("Input City, State");
+const OWAPIKey = "f64ce8261e64b0aec0696a661e821205";
+var city;
 var lat;
 var lon;
 var events = [];
@@ -37,28 +37,42 @@ function getEvents(){
 }
 
 function displayEvents(){
-    for (i=0; i<3; i++){
+    for (i=0; i<9; i++){
         $("#img"+i).attr("src",events[i].performers[0].image);
         $("#title"+i).text(events[i].short_title);
         $("#subtitle"+i).text(events[i].datetime_local);
-        $("#price"+i).text("Average Price: $" + events[i].stats.average_price);
+        //check for price available
+        $("#price"+i).text("Average Price: Check Site");
+        if(events[i].stats.average_price > 1){
+            $("#price"+i).text("Average Price: $" + events[i].stats.average_price);
+        } 
         //check for remaining seats
         if (events[i].stats.visible_listing_count > 1){
             $("#availability"+i).text("Seats Left: " + events[i].stats.visible_listing_count);}
         else if(events[i].stats.visible_listing_count == 1){
             $("#availability"+i).text(`Seats Left: Some seats may still be available. Click select event, then click "buy tickets" to see availability`)}
-        else{$("#availability"+i).text("Seats Left: Sold Out!!!");}
+        else{$("#availability"+i).text("Seats Left: Sold Out or Starting Soon!!");}
     }
-
+    $(".is-ancestor").show();
 }
 
 function init(){
     $(".hero").hide();
-//     $(".is-ancestor").hide();
+    $(".main").hide();
  }
 //declare functions
 
+//declare listeners
+$("#city-btn").click(function(event){
+    event.preventDefault();
+    city=$("#city-search").val();
+    $(".modal").removeClass("is-active");
+    $(".main").show();
+    $("#prev-viewed").append("<li data=" + city + ">" + city + "</li>")
+    convert();
+});
+//declare listeners
 
 //run
 init();
-convert();
+//run
