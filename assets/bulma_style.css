@@ -1,0 +1,33 @@
+
+.is-parent{
+    flex-wrap: wrap;
+}
+.prev{
+    margin-right: 15px;
+}
+article{
+    margin: 20px;
+}
+#current-image{
+    margin-right: 20px;
+}
+p{
+    text-overflow: hidden;
+    white-space: pre-wrap;
+}
+.tile {
+    min-width: 320px;
+}
+#image-container{
+    float:top;
+    margin-right: 20px;
+}
+#hero-image-container{
+    float:left;
+}
+#hero-img{
+margin-right:20px;
+}
+#venue-buy-tickets{
+    margin-top: 10px;
+}
