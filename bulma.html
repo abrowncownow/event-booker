@@ -5,22 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bulma Test</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/bulma_style.css">
+    <link rel="stylesheet" href="./assets/css/bulma_style.css">
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+  ></script>
+  <script
+src="https://code.jquery.com/jquery-3.6.1.min.js"
+integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+crossorigin="anonymous"></script>
 </head>
 <body class="has-navbar-fixed-top">
 
 <header class="navbar is-fixed-top">
     <div class="container">
     <nav class=" level is-mobile">
+        <p class="level-item has-text-centered">
+            <img src="./assets/images/Logo.png" alt="ShowHero" style="height: 30px;">
+          </p>
           <p class="level-item has-centered-text">
             <a class="link is-info">Change Location</a>
           </p>  
           <p class="level-item has-text-centered">
             <a class="link is-info">Change Event</a>
           </p>
-          <p class="level-item has-text-centered">
-            <img src="./assets/images/Logo.png" alt="ShowHero" style="height: 30px;">
-          </p>
+
           <p class="level-item has-centered-text">
             <p class="is-small">Previously Viewed: &nbsp;</p>
         </p>    
@@ -66,32 +75,35 @@
                     <li><p id="subtitle0" class="subtitle">Date/Distance to Event</p></li>
                     <li><p id="price0">Lowest Price-Average Price / Price-stars</p></li>
                     <li><p id="availability0">seats left / rooms left at this price.</p></li>
+                    <li><button data="0" class="button">Select Event</button></li>
                 </ul>
                 </article>
             </div>
             <div class="tile is-flex is-parent">
                 <article class="tile is-child notification is-info room ">
                     <div id="image-container">
-                        <img id='img0' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                        <img id='img1' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
                         </div>
                     <ul>
-                    <li><p id="title0" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
-                    <li><p id="subtitle0" class="subtitle">Date/Distance to Event</p></li>
-                    <li><p id="price0">Lowest Price-Average Price / Price-stars</p></li>
-                    <li><p id="availability0">seats left / rooms left at this price.</p></li>
+                    <li><p id="title1" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
+                    <li><p id="subtitle1" class="subtitle">Date/Distance to Event</p></li>
+                    <li><p id="price1">Lowest Price-Average Price / Price-stars</p></li>
+                    <li><p id="availability1">seats left / rooms left at this price.</p></li>
+                    <li><button data="1" class="button">Select Event</button></li>
                 </ul>
                 </article>
             </div>
             <div class="tile is-flex is-parent">
                 <article class="tile is-child notification is-info room ">
                     <div id="image-container">
-                        <img id='img0' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                        <img id='img2' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
                         </div>
                     <ul>
-                    <li><p id="title0" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
-                    <li><p id="subtitle0" class="subtitle">Date/Distance to Event</p></li>
-                    <li><p id="price0">Lowest Price-Average Price / Price-stars</p></li>
-                    <li><p id="availability0">seats left / rooms left at this price.</p></li>
+                    <li><p id="title2" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
+                    <li><p id="subtitle2" class="subtitle">Date/Distance to Event</p></li>
+                    <li><p id="price2">Lowest Price-Average Price / Price-stars</p></li>
+                    <li><p id="availability2">seats left / rooms left at this price.</p></li>
+                    <li><button data="2" class="button">Select Event</button></li>
                 </ul>
                 </article>
             </div>
@@ -101,6 +113,6 @@
 
 
 
-
+<script src="./assets/js/machine.js""></script>
 </body>
 </HTML>
