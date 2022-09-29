@@ -16,5 +16,18 @@ p{
     white-space: pre-wrap;
 }
 .tile {
-    min-width: fit-content;
+    min-width: 320px;
+}
+#image-container{
+    float:top;
+    margin-right: 20px;
+}
+#hero-image-container{
+    float:left;
+}
+#hero-img{
+margin-right:20px;
+}
+#venue-buy-tickets{
+    margin-top: 10px;
 }
