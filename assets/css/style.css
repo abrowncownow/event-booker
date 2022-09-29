@@ -1,0 +1,326 @@
+@media only screen and (max-width: 320px) {
+
+    body {
+        background-color: cadetblue;
+    }
+
+    h1 {
+        margin: 56px auto;
+        font-size: 25px;
+        font-family: 'Cinzel', serif;
+        font-style: italic;
+        text-align: center;
+        color: whitesmoke;
+    }
+
+    p {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .inputBox {
+        text-align: center;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    button {
+        background-color: black;
+        color: whitesmoke;
+    }
+
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    body {
+        background-color: cadetblue;
+    }
+
+    h1 {
+        margin: 56px auto;
+        font-size: 25px;
+        font-family: 'Cinzel', serif;
+        font-style: italic;
+        text-align: center;
+        color: whitesmoke;
+    }
+
+    p {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .inputBox {
+        text-align: center;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    button {
+        background-color: black;
+        color: whitesmoke;
+    }
+
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+    body {
+        background-color: cadetblue;
+    }
+
+    h1 {
+        margin: 56px auto;
+        font-size: 25px;
+        font-family: 'Cinzel', serif;
+        font-style: italic;
+        text-align: center;
+        color: whitesmoke;
+    }
+
+    p {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .inputBox {
+        text-align: center;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    button {
+        background-color: black;
+        color: whitesmoke;
+    }
+
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    body {
+        background-color: cadetblue;
+    }
+
+    h1 {
+        margin: 56px auto;
+        font-size: 25px;
+        font-family: 'Cinzel', serif;
+        font-style: italic;
+        text-align: center;
+        color: whitesmoke;
+    }
+
+    p {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .inputBox {
+        text-align: center;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    button {
+        background-color: black;
+        color: whitesmoke;
+    }
+
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+
+    body {
+        background-color: cadetblue;
+    }
+
+    h1 {
+        margin: 56px auto;
+        font-size: 25px;
+        font-family: 'Cinzel', serif;
+        font-style: italic;
+        text-align: center;
+        color: whitesmoke;
+    }
+
+    p {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .inputBox {
+        text-align: center;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    button {
+        background-color: black;
+        color: whitesmoke;
+    }
+
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+}
+
+@media only screen and (max-width: 2000px) {
+
+    body {
+        background-color: cadetblue;
+    }
+
+    h1 {
+        margin: 56px auto;
+        font-size: 25px;
+        font-family: 'Cinzel', serif;
+        font-style: italic;
+        text-align: center;
+        color: whitesmoke;
+    }
+
+    p {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .inputBox {
+        text-align: center;
+    }
+
+    input {
+        text-align: center;
+    }
+
+    button {
+        background-color: black;
+        color: whitesmoke;
+    }
+
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+}
+
+
+
+.mobileBody {
+    background-color: cadetblue;
+}
+
+.mobileOne {
+    margin: 56px auto;
+    font-size: 25px;
+    font-family: 'Cinzel', serif;
+    font-style: italic;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.welcomeText {
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.inputBox {
+    text-align: center;
+}
+
+.inputData {
+    text-align: center;
+}
+
+button {
+    background-color: black;
+    color: whitesmoke;
+}
+
+
+
+
+
+
+
+
+
+/* mobil formatting starting with iphon 5 smallest pixel res. */
+@media only screen and (max-width: 320px) {
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .headding {
+        height: 20;
+        background-color: silver;
+    }
+
+    .headdingTwo {
+        font-size: 25px;
+        font-family: 'Cinzel', serif;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .introduction {
+        display: none;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.headding {
+    height: 40;
+    background-color: silver;
+}
+
+.headdingTwo {
+    font-size: 25px;
+    font-family: 'Cinzel', serif;
+    font-style: italic;
+    text-align: center;
+}
+
+.introduction {
+    display: none;
+}
+
+
+
+.hide {
+    display: none;
+}

@@ -1,3 +1,22 @@
+const submitBtn = document.querySelector('#submitBtn');
+const containerOne = document.querySelector('.containerOne');
+const header = document.querySelector('#header')
+
+submitBtn.addEventListener('click', () => {
+    containerOne.classList.add('hide');
+    header.classList.remove('hide')
+
+
+
+
+})
+
+
+
+
+
+
+
 const options = {
     method: "GET",
     headers: {
