@@ -25,10 +25,25 @@ p{
 #hero-image-container{
     float:left;
 }
+
 #hero-img{
 margin-right:20px;
 }
+
 .button{
     margin: 10px;
     margin-left: 0px;
+}
+
+#elNavigation {
+    font-size: 20px;
+
+}
+
+#prev-viewed {
+    list-style: none;
+}
+
+header {
+    justify-content: center;
 }
