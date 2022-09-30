@@ -28,6 +28,7 @@ p{
 #hero-img{
 margin-right:20px;
 }
-#venue-buy-tickets{
-    margin-top: 10px;
+.button{
+    margin: 10px;
+    margin-left: 0px;
 }
