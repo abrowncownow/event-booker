@@ -4,6 +4,7 @@ var city;
 var lat;
 var lon;
 var events = [];
+var eventSelected;
 //declare variables
 
 
@@ -40,7 +41,8 @@ function displayEvents(){
     for (i=0; i<9; i++){
         $("#img"+i).attr("src",events[i].performers[0].image);
         $("#title"+i).text(events[i].short_title);
-        $("#subtitle"+i).text(events[i].datetime_local);
+        $("#venue"+i).text(events[i].venue.name);
+        $("#subtitle"+i).text(moment.utc(events[i].datetime_local).format("ddd LT M/D"));
         //check for price available
         $("#price"+i).text("Average Price: Check Site");
         if(events[i].stats.average_price > 1){
@@ -56,11 +58,35 @@ function displayEvents(){
     $(".is-ancestor").show();
 }
 
+function selectEvent(data){
+    eventSelected = events[data];
+    console.log(eventSelected);
+    showHero();
+}
+
+function showHero(){
+    $("#hero-img").attr("src",eventSelected.performers[0].image);
+    $("#hero-title").text(eventSelected.short_title);
+    $("#hero-date").text(moment.utc(eventSelected.datetime_local).format("dddd LT M/D"));
+    $("#hero-venue").text(eventSelected.venue.name);
+    $("#hero-price").text("Average Price: Click Buy Tickets to check");
+        if(eventSelected.stats.average_price > 1){
+            $("#hero-price").text("Average Price: $" + eventSelected.stats.average_price);
+        } 
+    if (eventSelected.stats.visible_listing_count > 1){
+        $("#hero-seats").text("Seats Left: " + eventSelected.stats.visible_listing_count);}
+    else if(eventSelected.stats.visible_listing_count == 1){
+        $("#hero-seats").text(`Seats Left: Some seats may still be available. Click select event, then click "buy tickets" to see availability`)}
+    else{$("#hero-seats").text("Seats Left: Sold Out or Starting Soon!!");}
+    $(".hero").show();
+}
+
 function init(){
     $(".hero").hide();
     $(".main").hide();
  }
 //declare functions
+
 
 //declare listeners
 $("#city-btn").click(function(event){
