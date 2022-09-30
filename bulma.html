@@ -15,23 +15,35 @@ src="https://code.jquery.com/jquery-3.6.1.min.js"
 integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
 crossorigin="anonymous"></script>
 </head>
+
 <body class="has-navbar-fixed-top">
-<header class="navbar is-fixed-top">
-    <div class="container">
-    <nav class="breadcrumb has-dot-separator level is-mobile" aria-label="breadcrumbs">
-        <ul>
-            <li>ShowHero</li>
-            <li><a class="link is-info">Change Location</a></li>
-            <li><a class="link is-info">Change Event</a></li>
-            <li class="is-small">Previously Viewed: &nbsp;</li>
-            <div id="prev-viewed">
-
+    <header id="elNavigation" class="navbar is-fixed-top is-blue">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <!-- add link to webpage in href below once it is posted--->
+                <a class="navbar-item" href="">
+                    <img src="./assets/images/Logo.png" width="112" height="28">
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"></a>
             </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <p class="navbar-item "><a class="link is-info">Change Location</a></p>
+                    <p class="navbar-item"><a class="link is-info">Change Event</a></p>
 
-        </ul>
-    </nav>
-    </div>
-</header>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Recent Searches
+                        </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" id="prev-viewed"></a>
+                    </div>
+                    </div>
+                </div>
+        
+            </div>
+        </nav>
+    </header>
 
 <!-- City Search Modal -->
 <div class="modal is-active">
