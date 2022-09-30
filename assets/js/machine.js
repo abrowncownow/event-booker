@@ -6,6 +6,7 @@ var lon;
 var events = [];
 var eventSelected;
 var rooms;
+var roomLocation;
 //declare variables
 
 
@@ -38,31 +39,69 @@ function getEvents(){
         .catch((error)=>alert(error));
 }
 
-function getHotels(){
-    lat = eventSelected.venue.location.lat;
-    lon = eventSelected.venue.location.lon;
-    var checkin = "2022-09-30" //moment.utc(events[i].datetime_local).format("YYYY-MM-DD");
-    var checkout = "2022-10-01";//moment.utc(events[i].datetime_local).add(1, 'days');
-    console.log(checkin);
-    console.log(checkout);
-     var hotelURL = "https://hotels-com-provider.p.rapidapi.com/v1/hotels/nearby?latitude=" + lat + "&currency=USD&longitude=" + lon + "&checkout_date=" + checkout + "&sort_order=DISTANCE_FROM_LANDMARK" +  "&checkin_date=" + checkin + "&page_number=2&adults_number=1&locale=en_US";
-    // var hotelURL = "https://hotels-com-provider.p.rapidapi.com/v1/hotels/nearby?latitude=" + lat + "&currency=USD&longitude=" + lon + "&checkout_date=2022-10-30"+ "&sort_order=DISTANCE_FROM_LANDMARK" +  "&checkin_date=2022-10-29"+"&page_number=2&adults_number=1&locale=en_US";
-    const options = {
+function getroomLocation(){
+    var address = eventSelected.venue.address;
+    var displayLoc= eventSelected.venue.display_location;
+     var airBNBURL = "https://airbnb19.p.rapidapi.com/api/v1/searchDestination?query="+ address + displayLoc;
+     const getLocationOptions = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': '2368c73193msh6744a705232e88ap13e1bfjsndb3ae68e75b2',
-            'X-RapidAPI-Host': 'hotels-com-provider.p.rapidapi.com'
+            'X-RapidAPI-Host': 'airbnb19.p.rapidapi.com'
         }
     };
     
-    fetch(hotelURL, options)
+    fetch(airBNBURL, getLocationOptions)
         .then(response => response.json())
-        .then((response) =>{ 
-            rooms = response.searchResults;
-            console.log(rooms)})
+        .then(response => {
+            roomLocation=response.data[0];
+            console.log(roomLocation);
+            function delay(time) {
+                return new Promise(resolve => setTimeout(resolve, time));
+              }
+            delay(1000).then(() => getRooms());
+            
+        })
+        .catch(err => console.error(err));
+   
+}
+
+function getRooms(){
+    var checkin = moment.utc(eventSelected.datetime_local).format("YYYY-MM-DD");
+    var checkout = moment.utc(eventSelected.datetime_local).add(1, 'd').format("YYYY-MM-DD");
+
+    const getRoomOptions = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '2368c73193msh6744a705232e88ap13e1bfjsndb3ae68e75b2',
+            'X-RapidAPI-Host': 'airbnb19.p.rapidapi.com'
+        }
+    };
+    var roomsURL="https://airbnb19.p.rapidapi.com/api/v1/searchPropertyByPlace?id=" + roomLocation.id +"&display_name=" + roomLocation.display_name +"&totalRecords=25&currency=USD&adults=1&checkin=" + checkin + "&checkout=" + checkout;
+
+    fetch(roomsURL, getRoomOptions)
+        .then(response => response.json())
+        .then(response =>{ 
+            console.log(response);
+            rooms = response.data;
+            console.log(rooms)
+            displayRooms()})
         .catch(err => console.error(err));
 }
 
+
+
+function displayRooms(){
+    for (i=0; i<9; i++){
+        $("#img"+i).attr("src",rooms[i].images[0]);
+        $("#title"+i).text(rooms[i].listingName);
+        $("#venue"+i).text("Star Rating: " + rooms[i].avgRating)
+        $("#subtitle"+i).text(rooms[i].roomType);;
+        $("#price"+i).text("Price: " + rooms[i].accessibilityLabel);
+        $("#availability"+i).text("");
+        $("#"+i).text("Book Room");
+    }
+}
 
 function displayEvents(){
     for (i=0; i<9; i++){
@@ -107,7 +146,7 @@ function showHero(){
     else{$("#hero-seats").text("Seats Left: Sold Out or Starting Soon!!");}
     $(".hero").show();
 
-    getHotels()
+    getroomLocation()
 }
 function showModal(){
     init();
