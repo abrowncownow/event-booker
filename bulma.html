@@ -17,6 +17,7 @@ crossorigin="anonymous"></script>
 </head>
 
 <body class="has-navbar-fixed-top">
+
     <header id="elNavigation" class="navbar is-fixed-top is-blue">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
@@ -28,7 +29,7 @@ crossorigin="anonymous"></script>
             </div>
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <p class="navbar-item "><a class="link is-info">Change Location</a></p>
+                    <p class="navbar-item "><a class="link is-info" onclick="showModal()">Change Location</a></p>
                     <p class="navbar-item"><a class="link is-info">Change Event</a></p>
 
                     <div class="navbar-item has-dropdown is-hoverable">
@@ -82,12 +83,12 @@ crossorigin="anonymous"></script>
             <div class="tile is-flex is-parent">
                 <article class="tile is-child notification is-info room ">
                     <div id="image-container">
-                        <img id='img0' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                        <img id='img0' class="image current-image" src="./assets/images/Hotel_room.jpeg" height="200px" width="250px">
                         </div>
                     <ul>
                         <li><p id="title0" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
                         <li><p id="subtitle0" class="subtitle">Date/Distance to Event</p></li>
-                        <li><p id="venue0"></p></li>
+                        <li><p id="venue0">Venue</p></li>
                         <li><p id="price0">Lowest Price-Average Price / Price-stars</p></li>
                         <li><p id="availability0">seats left / rooms left at this price.</p></li>
                         <li><button class="button" onclick="selectEvent(0)">Select Event</button></li>
@@ -97,7 +98,7 @@ crossorigin="anonymous"></script>
             <div class="tile is-flex is-parent">
                 <article class="tile is-child notification is-info room ">
                     <div id="image-container">
-                        <img id='img1' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                        <img id='img1' class="image current-image" src="./assets/images/Hotel_room.jpeg" height="200px" width="250px">
                     </div>
                     <ul>
                         <li><p id="title1" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
@@ -112,7 +113,7 @@ crossorigin="anonymous"></script>
             <div class="tile is-flex is-parent">
                 <article class="tile is-child notification is-info room ">
                     <div id="image-container">
-                        <img id='img2' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                        <img id='img2' class="image current-image" src="./assets/images/Hotel_room.jpeg" height="200px" width="250px">
                         </div>
                     <ul>
                         <li><p id="title2" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
@@ -129,7 +130,7 @@ crossorigin="anonymous"></script>
     <div class="tile is-flex is-parent">
         <article class="tile is-child notification is-info room ">
             <div id="image-container">
-                <img id='img3' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                <img id='img3' class="image current-image" src="./assets/images/Hotel_room.jpeg" height="200px" width="250px">
                 </div>
             <ul>
                 <li><p id="title3" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
