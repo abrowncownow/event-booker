@@ -18,6 +18,8 @@ var events = [];
 var eventSelected;
 var rooms;
 var roomLocation;
+var checkin;
+var checkout;
 //declare variables
 
 
@@ -78,8 +80,8 @@ function getroomLocation(){
 }
 
 function getRooms(){
-    var checkin = moment.utc(eventSelected.datetime_local).format("YYYY-MM-DD");
-    var checkout = moment.utc(eventSelected.datetime_local).add(1, 'd').format("YYYY-MM-DD");
+    checkin = moment.utc(eventSelected.datetime_local).format("YYYY-MM-DD");
+    checkout = moment.utc(eventSelected.datetime_local).add(1, 'd').format("YYYY-MM-DD");
 
     const getRoomOptions = {
         method: 'GET',
@@ -111,8 +113,13 @@ function displayRooms(){
         $("#price"+i).text("Price: " + rooms[i].accessibilityLabel);
         $("#availability"+i).text("");
         $("#"+i).text("Book Room");
+        $("#"+i).attr("onclick","bookRoom("+i+")")
     }
 }
+function bookRoom(i){
+   window.location.href = "https://www.airbnb.com/rooms/plus/" + rooms[i].id + "?adults=1&check_in=" + checkin + "&check_out=" + checkout
+}
+
 
 function displayEvents(){
     for (i=0; i<9; i++){
