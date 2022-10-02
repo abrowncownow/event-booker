@@ -1,4 +1,3 @@
-
 //setting time and date
 $('#top-date').text(moment().format("MMM Do YYYY"))
 $('#top-time').text(moment().format('LT'))
@@ -10,9 +9,7 @@ $('#top-time').text(moment().format('LT'))
 }, 1000)
 
 
-
-
-//declaire variables
+//declare variables
 const OWAPIKey = "f64ce8261e64b0aec0696a661e821205";
 var city;
 var lat;
@@ -186,7 +183,7 @@ $("#city-btn").click(function(event){
     city=$("#city-search").val();
     $(".modal").removeClass("is-active");
     $(".main").show();
-    $("#prev-viewed").append("<li data=" + city + ">" + city + "</li>")
+    $("#prev-viewed").append(`<li class="navbar-item" data="` + city + `">` + city + `</li>`)
     convert();
 });
 $("#changeEvent").click(function(event){
