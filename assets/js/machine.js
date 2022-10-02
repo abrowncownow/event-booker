@@ -1,10 +1,25 @@
-//declaire variables
+//setting time and date
+$('#top-date').text(moment().format("MMM Do YYYY"))
+$('#top-time').text(moment().format('LT'))
+
+//reloading time and date every second
+setInterval(function( ){
+$('#top-date').text(moment().format("MMM Do YYYY"))
+$('#top-time').text(moment().format('LT'))
+}, 1000)
+
+
+//declare variables
 const OWAPIKey = "f64ce8261e64b0aec0696a661e821205";
 var city;
 var lat;
 var lon;
 var events = [];
 var eventSelected;
+var rooms;
+var roomLocation;
+var checkin;
+var checkout;
 //declare variables
 
 
@@ -37,6 +52,75 @@ function getEvents(){
         .catch((error)=>alert(error));
 }
 
+function getroomLocation(){
+    var address = eventSelected.venue.address;
+    var displayLoc= eventSelected.venue.display_location;
+     var airBNBURL = "https://airbnb19.p.rapidapi.com/api/v1/searchDestination?query="+ address + displayLoc;
+     const getLocationOptions = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '2368c73193msh6744a705232e88ap13e1bfjsndb3ae68e75b2',
+            'X-RapidAPI-Host': 'airbnb19.p.rapidapi.com'
+        }
+    };
+    
+    fetch(airBNBURL, getLocationOptions)
+        .then(response => response.json())
+        .then(response => {
+            roomLocation=response.data[0];
+            console.log(roomLocation);
+            function delay(time) {
+                return new Promise(resolve => setTimeout(resolve, time));
+              }
+            delay(1000).then(() => getRooms());
+            
+        })
+        .catch(err => console.error(err));
+   
+}
+
+function getRooms(){
+    checkin = moment.utc(eventSelected.datetime_local).format("YYYY-MM-DD");
+    checkout = moment.utc(eventSelected.datetime_local).add(1, 'd').format("YYYY-MM-DD");
+
+    const getRoomOptions = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '2368c73193msh6744a705232e88ap13e1bfjsndb3ae68e75b2',
+            'X-RapidAPI-Host': 'airbnb19.p.rapidapi.com'
+        }
+    };
+    var roomsURL="https://airbnb19.p.rapidapi.com/api/v1/searchPropertyByPlace?id=" + roomLocation.id +"&display_name=" + roomLocation.display_name +"&totalRecords=25&currency=USD&adults=1&checkin=" + checkin + "&checkout=" + checkout;
+
+    fetch(roomsURL, getRoomOptions)
+        .then(response => response.json())
+        .then(response =>{ 
+            console.log(response);
+            rooms = response.data;
+            console.log(rooms)
+            displayRooms()})
+        .catch(err => console.error(err));
+}
+
+
+
+function displayRooms(){
+    for (i=0; i<9; i++){
+        $("#img"+i).attr("src",rooms[i].images[0]);
+        $("#title"+i).text(rooms[i].listingName);
+        $("#venue"+i).text("Star Rating: " + rooms[i].avgRating)
+        $("#subtitle"+i).text(rooms[i].roomType);;
+        $("#price"+i).text("Price: " + rooms[i].accessibilityLabel);
+        $("#availability"+i).text("");
+        $("#"+i).text("Book Room");
+        $("#"+i).attr("onclick","bookRoom("+i+")")
+    }
+}
+function bookRoom(i){
+   window.location.href = "https://www.airbnb.com/rooms/plus/" + rooms[i].id + "?adults=1&check_in=" + checkin + "&check_out=" + checkout
+}
+
+
 function displayEvents(){
     for (i=0; i<9; i++){
         $("#img"+i).attr("src",events[i].performers[0].image);
@@ -54,6 +138,7 @@ function displayEvents(){
         else if(events[i].stats.visible_listing_count == 1){
             $("#availability"+i).text(`Seats Left: Some seats may still be available. Click select event, then click "buy tickets" to see availability`)}
         else{$("#availability"+i).text("Seats Left: Sold Out or Starting Soon!!");}
+        $("#"+i).text("Select Event");
     }
     $(".is-ancestor").show();
 }
@@ -70,8 +155,8 @@ function showHero(){
     $("#hero-date").text(moment.utc(eventSelected.datetime_local).format("dddd LT M/D"));
     $("#hero-venue").text(eventSelected.venue.name);
     $("#hero-price").text("Average Price: Click Buy Tickets to check");
-        if(eventSelected.stats.average_price > 1){
-            $("#hero-price").text("Average Price: $" + eventSelected.stats.average_price);
+    if(eventSelected.stats.average_price > 1){
+        $("#hero-price").text("Average Price: $" + eventSelected.stats.average_price);
         } 
     if (eventSelected.stats.visible_listing_count > 1){
         $("#hero-seats").text("Seats Left: " + eventSelected.stats.visible_listing_count);}
@@ -79,8 +164,20 @@ function showHero(){
         $("#hero-seats").text(`Seats Left: Some seats may still be available. Click select event, then click "buy tickets" to see availability`)}
     else{$("#hero-seats").text("Seats Left: Sold Out or Starting Soon!!");}
     $(".hero").show();
-}
 
+    getroomLocation()
+}
+function showModal(){
+    init();
+    $(".modal").addClass("is-active");
+}
+function changeEvent(){
+    
+    $(".hero").hide();
+    displayEvents();
+
+
+}
 function init(){
     $(".hero").hide();
     $(".main").hide();
@@ -94,11 +191,19 @@ $("#city-btn").click(function(event){
     city=$("#city-search").val();
     $(".modal").removeClass("is-active");
     $(".main").show();
-    $("#prev-viewed").append("<li data=" + city + ">" + city + "</li>")
+    $("#prev-viewed").append(`<li class="navbar-item" data="` + city + `">` + city + `</li>`)
     convert();
 });
+$("#changeEvent").click(function(event){
+    event.preventDefault();
+    changeEvent();
+   
+
+});
+
 //declare listeners
 
 //run
 init();
+
 //run

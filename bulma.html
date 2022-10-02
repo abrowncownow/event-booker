@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bulma Test</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/bulma_style.css">
     <script
     type="text/javascript"
@@ -15,33 +18,52 @@ src="https://code.jquery.com/jquery-3.6.1.min.js"
 integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
 crossorigin="anonymous"></script>
 </head>
+
 <body class="has-navbar-fixed-top">
-<header class="navbar is-fixed-top">
-    <div class="container">
-    <nav class="breadcrumb has-dot-separator level is-mobile" aria-label="breadcrumbs">
-        <ul>
-            <li>ShowHero</li>
-            <li><a class="link is-info">Change Location</a></li>
-            <li><a class="link is-info">Change Event</a></li>
-            <li class="is-small">Previously Viewed: &nbsp;</li>
-            <div id="prev-viewed">
 
+    <header id="elNavigation" class="navbar is-fixed-top is-blue">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                
+                <!-- add link to webpage in href below once it is posted--->
+                <p id="logo" class="navbar-item" >
+                    SHOWHERO
+                </p>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"></a>
             </div>
+        
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <p class="navbar-item "><a class="link is-info" onclick="showModal()">Change Location</a></p>
+                    <p class="navbar-item"><a class="link is-info" onclick="changeEvent()">Change Event</a></p>
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                Recent Searches
+                            </a>
+                            <div class="navbar-dropdown">
+                                <ul id="prev-viewed">
 
-        </ul>
-    </nav>
-    </div>
-</header>
+                                </ul>
+                            </div>
+                        </div>
+                    <p class="navbar-item ">
+                        <span id="top-date", style="padding: 10px;"></span>
+                        <span id="top-time", style="padding: 10px;"></span>
+                    </p>
+                </div>
+            </div>
+        </nav>
+    </header>
 
 <!-- City Search Modal -->
 <div class="modal is-active">
     <div class="modal-background"></div>
     <div class="modal-content box has-text-centered">
         <h1 class="title is-1">ShowHero</h1>
-        <p class="subtitle">Find Events. Buy Tickets. Find and book hotel room. All in one place.</p>
+        <p class="subtitle">Find Events. Buy Tickets. Find and book rooms. All in one place.</p>
         <label for="city-search" class="label"> Search by City, State</label>
-        <input id="city-search" class="input is-primary" type="text" placeholder="City, State">   
-        <button id="city-btn" class="button is-primary is-outlined">Find Events</button>
+        <input id="city-search" class="input" type="text" placeholder="City, State">   
+        <button id="city-btn" class="button">Find Events</button>
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
 </div>
@@ -70,22 +92,22 @@ crossorigin="anonymous"></script>
             <div class="tile is-flex is-parent">
                 <article class="tile is-child notification is-info room ">
                     <div id="image-container">
-                        <img id='img0' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                        <img id='img0' class="image current-image" src="./assets/images/Hotel_room.jpeg" height="200px" width="250px">
                         </div>
                     <ul>
                         <li><p id="title0" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
                         <li><p id="subtitle0" class="subtitle">Date/Distance to Event</p></li>
-                        <li><p id="venue0"></p></li>
+                        <li><p id="venue0">Venue</p></li>
                         <li><p id="price0">Lowest Price-Average Price / Price-stars</p></li>
                         <li><p id="availability0">seats left / rooms left at this price.</p></li>
-                        <li><button class="button" onclick="selectEvent(0)">Select Event</button></li>
+                        <li><button id="0" class="button" onclick="selectEvent(0)">Select Event</button></li>
                     </ul>
                 </article>
             </div>
             <div class="tile is-flex is-parent">
                 <article class="tile is-child notification is-info room ">
                     <div id="image-container">
-                        <img id='img1' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                        <img id='img1' class="image current-image" src="./assets/images/Hotel_room.jpeg" height="200px" width="250px">
                     </div>
                     <ul>
                         <li><p id="title1" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
@@ -93,14 +115,14 @@ crossorigin="anonymous"></script>
                         <li><p id="venue1"></p></li>
                         <li><p id="price1">Lowest Price-Average Price / Price-stars</p></li>
                         <li><p id="availability1">seats left / rooms left at this price.</p></li>
-                        <li><button data="1" class="button" onclick="selectEvent(1)">Select Event</button></li>
+                        <li><button id="1" class="button" onclick="selectEvent(1)">Select Event</button></li>
                     </ul>
                 </article>
             </div>
             <div class="tile is-flex is-parent">
                 <article class="tile is-child notification is-info room ">
                     <div id="image-container">
-                        <img id='img2' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                        <img id='img2' class="image current-image" src="./assets/images/Hotel_room.jpeg" height="200px" width="250px">
                         </div>
                     <ul>
                         <li><p id="title2" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
@@ -108,7 +130,7 @@ crossorigin="anonymous"></script>
                         <li><p id="venue2"></p></li>
                         <li><p id="price2">Lowest Price-Average Price / Price-stars</p></li>
                         <li><p id="availability2">seats left / rooms left at this price.</p></li>
-                        <li><button data="2" class="button" onclick="selectEvent(2)">Select Event</button></li>
+                        <li><button id="2" class="button" onclick="selectEvent(2)">Select Event</button></li>
                     </ul>
                 </article>
             </div>
@@ -117,7 +139,7 @@ crossorigin="anonymous"></script>
     <div class="tile is-flex is-parent">
         <article class="tile is-child notification is-info room ">
             <div id="image-container">
-                <img id='img3' class="image current-image" src="assets/images/Hotel_room.jpeg" height="200px" width="250px">
+                <img id='img3' class="image current-image" src="./assets/images/Hotel_room.jpeg" height="200px" width="250px">
                 </div>
             <ul>
                 <li><p id="title3" class="title">EVENT NAME AND TAXONOMY / HOTEL NAME</p></li>
@@ -125,7 +147,7 @@ crossorigin="anonymous"></script>
                 <li><p id="venue3"></p></li>
                 <li><p id="price3">Lowest Price-Average Price / Price-stars</p></li>
                 <li><p id="availability3">seats left / rooms left at this price.</p></li>
-                <li><button data="3" class="button" onclick="selectEvent(3)">Select Event</button></li>
+                <li><button id="3" class="button" onclick="selectEvent(3)">Select Event</button></li>
             </ul>
         </article>
     </div>
@@ -140,7 +162,7 @@ crossorigin="anonymous"></script>
                 <li><p id="venue4"></p></li>
                 <li><p id="price4">Lowest Price-Average Price / Price-stars</p></li>
                 <li><p id="availability4">seats left / rooms left at this price.</p></li>
-                <li><button data="4" class="button" onclick="selectEvent(4)">Select Event</button></li>
+                <li><button id="4" class="button" onclick="selectEvent(4)">Select Event</button></li>
             </ul>
         </article>
     </div>
@@ -155,7 +177,7 @@ crossorigin="anonymous"></script>
                 <li><p id="venue5"></p></li>
                 <li><p id="price5">Lowest Price-Average Price / Price-stars</p></li>
                 <li><p id="availability5">seats left / rooms left at this price.</p></li>
-                <li><button data="5" class="button" onclick="selectEvent(5)">Select Event</button></li>
+                <li><button id="5" class="button" onclick="selectEvent(5)">Select Event</button></li>
             </ul>
         </article>
     </div>
@@ -172,7 +194,7 @@ crossorigin="anonymous"></script>
                 <li><p id="venue6"></p></li>
                 <li><p id="price6">Lowest Price-Average Price / Price-stars</p></li>
                 <li><p id="availability6">seats left / rooms left at this price.</p></li>
-                <li><button data="6" class="button" onclick="selectEvent(6)">Select Event</button></li>
+                <li><button id="6" class="button" onclick="selectEvent(6)">Select Event</button></li>
             </ul>
         </article>
     </div>
@@ -187,7 +209,7 @@ crossorigin="anonymous"></script>
                 <li><p id="venue7"></p></li>
                 <li><p id="price7">Lowest Price-Average Price / Price-stars</p></li>
                 <li><p id="availability7">seats left / rooms left at this price.</p></li>
-                <li><button data="7" class="button" onclick="selectEvent(7)">Select Event</button></li>
+                <li><button id="7" class="button" onclick="selectEvent(7)">Select Event</button></li>
             </ul>
         </article>
     </div>
@@ -202,7 +224,7 @@ crossorigin="anonymous"></script>
                 <li><p id="venue8"></p></li>
                 <li><p id="price8">Lowest Price-Average Price / Price-stars</p></li>
                 <li><p id="availability8">seats left / rooms left at this price.</p></li>
-                <li><button data="8" class="button" onclick="selectEvent(8)">Select Event</button></li>
+                <li><button id="8" class="button" onclick="selectEvent(8)">Select Event</button></li>
             </ul>
         </article>
     </div>
