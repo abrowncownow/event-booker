@@ -131,6 +131,7 @@ function displayEvents(){
         else if(events[i].stats.visible_listing_count == 1){
             $("#availability"+i).text(`Seats Left: Some seats may still be available. Click select event, then click "buy tickets" to see availability`)}
         else{$("#availability"+i).text("Seats Left: Sold Out or Starting Soon!!");}
+        $("#"+i).text("Select Event");
     }
     $(".is-ancestor").show();
 }
