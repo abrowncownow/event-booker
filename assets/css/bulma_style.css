@@ -1,6 +1,6 @@
 :root{
  --lis: #fbfbfbdc;
- --lac: #55BAC1;
+ --lac: #55bac1c0;
  --mbc: #A2B3AB;
  --dac: #928C76;
  --das: #363431;
@@ -68,6 +68,7 @@ img{
     background-color: var(--lis);
     color: var(--das);
     border-radius: 20px;
+    
 }
 .button{
     background-color: var(--mbc);
@@ -80,7 +81,7 @@ header p, a, span{
 header div{
     background-color: var(--mbc);
 }
-body{
+body, html{
     font-family: 'Roboto Condensed', sans-serif;
     background-color: var(--das);
 }
@@ -91,9 +92,12 @@ body{
     margin-top: 40px;
 }
 .hero-body{
-    background-color: var(--das);
+    background-color: var(--lac);
 }
 .modal-content{
     background-color: var(--lis);
     color: var(--das);
+}
+.hero.is-link {
+    background-color: var(--lac);
 }
