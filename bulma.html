@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bulma Test</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/bulma_style.css">
     <script
     type="text/javascript"
@@ -23,9 +26,9 @@ crossorigin="anonymous"></script>
             <div class="navbar-brand">
                 
                 <!-- add link to webpage in href below once it is posted--->
-                <a class="navbar-item" href="">
-                    <img src="./assets/images/Logo.png" width="112" height="28">
-                </a>
+                <p id="logo" class="navbar-item" >
+                    SHOWHERO
+                </p>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"></a>
             </div>
         
@@ -33,17 +36,18 @@ crossorigin="anonymous"></script>
                 <div class="navbar-start">
                     <p class="navbar-item "><a class="link is-info" onclick="showModal()">Change Location</a></p>
                     <p class="navbar-item"><a class="link is-info" onclick="changeEvent()">Change Event</a></p>
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            Recent Searches
-                        </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" id="prev-viewed"></a>
-                    </div><span id="top-date", style="padding: 10px; color: #3333f5;"></span>
-                    <span id="top-time", style="padding: 10px; color: rgb(57, 48, 230);"></span>
-                    
-                    </div>
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                Recent Searches
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" id="prev-viewed"></a>
+                            </div>
+                        </div>
+                    <p class="navbar-item ">
+                        <span id="top-date", style="padding: 10px; color: #3333f5;"></span>
+                        <span id="top-time", style="padding: 10px; color: rgb(57, 48, 230);"></span>
+                    </p>
                 </div>
             </div>
         </nav>
