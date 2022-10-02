@@ -1,3 +1,17 @@
+
+//setting time and date
+$('#top-date').text(moment().format("MMM Do YYYY"))
+$('#top-time').text(moment().format('LT'))
+
+//reloading time and date every second
+setInterval(function( ){
+$('#top-date').text(moment().format("MMM Do YYYY"))
+$('#top-time').text(moment().format('LT'))
+}, 1000)
+
+
+
+
 //declaire variables
 const OWAPIKey = "f64ce8261e64b0aec0696a661e821205";
 var city;
@@ -152,6 +166,13 @@ function showModal(){
     init();
     $(".modal").addClass("is-active");
 }
+function changeEvent(){
+    
+    $(".hero").hide();
+    displayEvents();
+
+
+}
 function init(){
     $(".hero").hide();
     $(".main").hide();
@@ -168,24 +189,16 @@ $("#city-btn").click(function(event){
     $("#prev-viewed").append("<li data=" + city + ">" + city + "</li>")
     convert();
 });
+$("#changeEvent").click(function(event){
+    event.preventDefault();
+    changeEvent();
+   
 
-function testBooking(){
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '2368c73193msh6744a705232e88ap13e1bfjsndb3ae68e75b2',
-            'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com'
-        }
-    };
-    
-    fetch('https://apidojo-booking-v1.p.rapidapi.com/filters/list?room_qty=1&departure_date=2022-09-30&dest_ids=null&guest_qty=1&arrival_date=2022-09-29&search_type=latlong&languagecode=en-us&longitude=-122.688&price_filter_currencycode=USD&latitude=45.5264', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-}
+});
+
 //declare listeners
 
 //run
 init();
-testBooking();
+
 //run
