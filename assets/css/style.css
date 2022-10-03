@@ -1,326 +1,106 @@
-@media only screen and (max-width: 320px) {
-
-    body {
-        background-color: cadetblue;
-    }
-
-    h1 {
-        margin: 56px auto;
-        font-size: 25px;
-        font-family: 'Cinzel', serif;
-        font-style: italic;
-        text-align: center;
-        color: whitesmoke;
-    }
-
-    p {
-        padding: 5px 10px;
-        text-align: center;
-    }
-
-    .inputBox {
-        text-align: center;
-    }
-
-    input {
-        text-align: center;
-    }
-
-    button {
-        background-color: black;
-        color: whitesmoke;
-    }
-
-    a {
-        text-decoration: none;
-        color: whitesmoke;
-    }
+:root{
+ --lis: #fbfbfbdc;
+ --lac: #55bac1c0;
+ --mbc: #A2B3AB;
+ --dac: #928C76;
+ --das: #363431;
+}
+.is-parent{
+    flex-wrap: wrap;
+}
+.prev{
+    margin-right: 15px;
+}
+article{
+    margin: 20px;
+}
+#current-image{
+    margin-right: 20px;
+}
+p{
+    text-overflow: hidden;
+    white-space: pre-wrap;
+}
+.tile {
+    min-width: 320px;
+}
+#image-container{
+    float:top;
+    margin-right: 20px;
+}
+#hero-image-container{
+    float:left;
 }
 
-@media only screen and (max-width: 500px) {
-
-    body {
-        background-color: cadetblue;
-    }
-
-    h1 {
-        margin: 56px auto;
-        font-size: 25px;
-        font-family: 'Cinzel', serif;
-        font-style: italic;
-        text-align: center;
-        color: whitesmoke;
-    }
-
-    p {
-        padding: 5px 10px;
-        text-align: center;
-    }
-
-    .inputBox {
-        text-align: center;
-    }
-
-    input {
-        text-align: center;
-    }
-
-    button {
-        background-color: black;
-        color: whitesmoke;
-    }
-
-    a {
-        text-decoration: none;
-        color: whitesmoke;
-    }
+#hero-img{
+margin-right:20px;
 }
 
-@media only screen and (max-width: 800px) {
-
-    body {
-        background-color: cadetblue;
-    }
-
-    h1 {
-        margin: 56px auto;
-        font-size: 25px;
-        font-family: 'Cinzel', serif;
-        font-style: italic;
-        text-align: center;
-        color: whitesmoke;
-    }
-
-    p {
-        padding: 5px 10px;
-        text-align: center;
-    }
-
-    .inputBox {
-        text-align: center;
-    }
-
-    input {
-        text-align: center;
-    }
-
-    button {
-        background-color: black;
-        color: whitesmoke;
-    }
-
-    a {
-        text-decoration: none;
-        color: whitesmoke;
-    }
+.button{
+    margin: 10px;
+    margin-left: 0px;
 }
 
-@media only screen and (max-width: 1200px) {
+#elNavigation {
+    font-size: 20px;
 
-    body {
-        background-color: cadetblue;
-    }
-
-    h1 {
-        margin: 56px auto;
-        font-size: 25px;
-        font-family: 'Cinzel', serif;
-        font-style: italic;
-        text-align: center;
-        color: whitesmoke;
-    }
-
-    p {
-        padding: 5px 10px;
-        text-align: center;
-    }
-
-    .inputBox {
-        text-align: center;
-    }
-
-    input {
-        text-align: center;
-    }
-
-    button {
-        background-color: black;
-        color: whitesmoke;
-    }
-
-    a {
-        text-decoration: none;
-        color: whitesmoke;
-    }
 }
 
-@media only screen and (max-width: 1800px) {
-
-    body {
-        background-color: cadetblue;
-    }
-
-    h1 {
-        margin: 56px auto;
-        font-size: 25px;
-        font-family: 'Cinzel', serif;
-        font-style: italic;
-        text-align: center;
-        color: whitesmoke;
-    }
-
-    p {
-        padding: 5px 10px;
-        text-align: center;
-    }
-
-    .inputBox {
-        text-align: center;
-    }
-
-    input {
-        text-align: center;
-    }
-
-    button {
-        background-color: black;
-        color: whitesmoke;
-    }
-
-    a {
-        text-decoration: none;
-        color: whitesmoke;
-    }
+#prev-viewed {
+    list-style: none;
 }
 
-@media only screen and (max-width: 2000px) {
-
-    body {
-        background-color: cadetblue;
-    }
-
-    h1 {
-        margin: 56px auto;
-        font-size: 25px;
-        font-family: 'Cinzel', serif;
-        font-style: italic;
-        text-align: center;
-        color: whitesmoke;
-    }
-
-    p {
-        padding: 5px 10px;
-        text-align: center;
-    }
-
-    .inputBox {
-        text-align: center;
-    }
-
-    input {
-        text-align: center;
-    }
-
-    button {
-        background-color: black;
-        color: whitesmoke;
-    }
-
-    a {
-        text-decoration: none;
-        color: whitesmoke;
-    }
+header, nav {
+    justify-content: center;
+    width: 100%;
+    height: 45px;
+    
 }
-
-
-
-.mobileBody {
-    background-color: cadetblue;
+img{
+    border-radius: 15px;
 }
-
-.mobileOne {
-    margin: 56px auto;
-    font-size: 25px;
-    font-family: 'Cinzel', serif;
-    font-style: italic;
-    text-align: center;
-    color: whitesmoke;
+.notification.is-child button{
+    background-color: var(--mbc);
+    color: var(--lis);
+    border-radius: 15px;
 }
-
-.welcomeText {
-    padding: 5px 10px;
-    text-align: center;
+.notification.is-child{
+    background-color: var(--lis);
+    color: var(--das);
+    border-radius: 20px;
+    
 }
-
-.inputBox {
-    text-align: center;
+.button{
+    background-color: var(--mbc);
+    color: var(--lis);
+    border-radius: 15px;
 }
-
-.inputData {
-    text-align: center;
+header p, a, span{
+    color: var(--lis)
 }
-
-button {
-    background-color: black;
-    color: whitesmoke;
+header div{
+    background-color: var(--mbc);
 }
-
-
-
-
-
-
-
-
-
-/* mobil formatting starting with iphon 5 smallest pixel res. */
-@media only screen and (max-width: 320px) {
-
-    * {
-        padding: 0;
-        margin: 0;
-    }
-
-    .headding {
-        height: 20;
-        background-color: silver;
-    }
-
-    .headdingTwo {
-        font-size: 25px;
-        font-family: 'Cinzel', serif;
-        font-style: italic;
-        text-align: center;
-    }
-
-    .introduction {
-        display: none;
-    }
+body, html{
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: var(--das);
 }
-
-* {
-    padding: 0;
-    margin: 0;
+#logo{
+    font-family: 'Bungee Spice', cursive;
 }
-
-.headding {
-    height: 40;
-    background-color: silver;
+.hero{
+    margin-top: 40px;
 }
-
-.headdingTwo {
-    font-size: 25px;
-    font-family: 'Cinzel', serif;
-    font-style: italic;
-    text-align: center;
+.hero-body{
+    background-color: var(--lac);
 }
-
-.introduction {
-    display: none;
+.modal-content{
+    background-color: var(--lis);
+    color: var(--das);
 }
-
-
-
-.hide {
-    display: none;
+.hero.is-link {
+    background-color: var(--lac);
+}
+#prev-viewed li:hover{
+    background-color: var(--lac);
 }
