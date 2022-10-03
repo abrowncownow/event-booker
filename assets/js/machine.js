@@ -19,6 +19,8 @@ var rooms;
 var roomLocation;
 var checkin;
 var checkout;
+var prevViewed = [];
+var storedPrev = [];
 //declare variables
 
 //scripting for mobile menu
@@ -134,7 +136,7 @@ function getRooms() {
 }
 
 function displayRooms() {
-    for (i = 0; i < 9; i++) {
+    for (i = 0; i < 12; i++) {
         $("#img" + i).attr("src", rooms[i].images[0]);
         $("#title" + i).text(rooms[i].listingName);
         $("#venue" + i).text("Star Rating: " + rooms[i].avgRating);
@@ -156,7 +158,7 @@ function bookRoom(i) {
 }
 
 function displayEvents() {
-    for (i = 0; i < 9; i++) {
+    for (i = 0; i < 12; i++) {
         $("#img" + i).attr("src", events[i].performers[0].image);
         $("#title" + i).text(events[i].short_title);
         $("#venue" + i).text(events[i].venue.name);
@@ -193,16 +195,14 @@ function selectEvent(data) {
     eventSelected = events[data];
     console.log(eventSelected);
     showHero();
+    window.location.hash = "hero-section";
 }
 
 function getTickets() {
     console.log(eventSelected);
-    location.href = eventSelected.url;
+    if (eventSelected.stats.visible_listing_count > 1) {location.href = eventSelected.url;}
+    else{location.href = eventSelected.venue.url;}
 }
-
-$("#venue-buy-tickets").click(function () {
-    getTickets();
-});
 
 function showHero() {
     $("#hero-img").attr("src", eventSelected.performers[0].image);
@@ -233,7 +233,8 @@ function showHero() {
     getroomLocation();
 }
 function showModal() {
-    init();
+    $(".hero").hide();
+    $(".main").hide();
     $(".modal").addClass("is-active");
 }
 function changeEvent() {
@@ -241,8 +242,28 @@ function changeEvent() {
     displayEvents();
 }
 function init() {
+    storedPrev = JSON.parse(localStorage.getItem("prevViewed"));
+    if (storedPrev){
+        prevViewed = storedPrev;
+        for (i=0; i<storedPrev.length;i++){
+            $("#prev-viewed").append(
+                `<li class="navbar-item" data="` + storedPrev[i] + `">` + storedPrev[i] + `</li>`
+            );
+        }
+    }
     $(".hero").hide();
     $(".main").hide();
+}
+
+function setEvent(){
+    $(".modal").removeClass("is-active");
+    $(".main").show();
+    $("#prev-viewed").append(
+        `<li class="navbar-item" data="` + city + `">` + city + `</li>`
+    );
+   prevViewed.push(city);
+   localStorage.setItem("prevViewed",JSON.stringify(prevViewed));
+   convert();
 }
 //declare functions
 
@@ -250,18 +271,24 @@ function init() {
 $("#city-btn").click(function (event) {
     event.preventDefault();
     city = $("#city-search").val();
-    $(".modal").removeClass("is-active");
-    $(".main").show();
-    $("#prev-viewed").append(
-        `<li class="navbar-item" data="` + city + `">` + city + `</li>`
-    );
-    convert();
+    setEvent();
+
 });
 $("#changeEvent").click(function (event) {
     event.preventDefault();
     changeEvent();
 });
 
+$("#venue-buy-tickets").click(function () {
+    getTickets();
+});
+
+$("#prev-viewed").on("click", ".navbar-item", function(event){
+    city=$(this).text();
+    console.log(city);
+    setEvent();
+
+});
 //declare listeners
 
 //run
