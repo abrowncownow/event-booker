@@ -195,7 +195,7 @@ function selectEvent(data) {
     eventSelected = events[data];
     console.log(eventSelected);
     showHero();
-    window.location.hash = "hero-section";
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
 }
 
 function getTickets() {
