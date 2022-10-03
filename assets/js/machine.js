@@ -136,7 +136,7 @@ function getRooms() {
 }
 
 function displayRooms() {
-    for (i = 0; i < 12; i++) {
+    for (i = 0; i < 24; i++) {
         $("#img" + i).attr("src", rooms[i].images[0]);
         $("#title" + i).text(rooms[i].listingName);
         $("#venue" + i).text("Star Rating: " + rooms[i].avgRating);
@@ -158,7 +158,7 @@ function bookRoom(i) {
 }
 
 function displayEvents() {
-    for (i = 0; i < 12; i++) {
+    for (i = 0; i < 24; i++) {
         $("#img" + i).attr("src", events[i].performers[0].image);
         $("#title" + i).text(events[i].short_title);
         $("#venue" + i).text(events[i].venue.name);
