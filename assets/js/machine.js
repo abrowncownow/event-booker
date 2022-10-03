@@ -158,6 +158,15 @@ function selectEvent(data) {
     showHero();
 }
 
+function getTickets() {
+    console.log(eventSelected)
+   location.href = eventSelected.venue.url
+ }
+
+ $("#venue-buy-tickets").click(function(){
+    getTickets();
+});
+
 function showHero() {
     $("#hero-img").attr("src", eventSelected.performers[0].image);
     $("#hero-title").text(eventSelected.short_title);
