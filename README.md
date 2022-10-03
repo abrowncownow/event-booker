@@ -2,16 +2,13 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+The team decided to create a web page to search for local events. Our motivation behind this was to have an easier time planning a vacation, a quick outing or even a date night.The application searches for local events based on the city and state provided. When the event you wish to go to is selected you are prompted to buy the tickets or search for an Air BnB near the event, if a place of stay is needed. The team learned alot about working together, a new css platform, running GitHub and that API’s don't always have the information you're looking for.
 
 ## Credits
 
 https://www.youtube.com/watch?v=qvn2SxGvyPsl.
+
+https://bulma.io/
 
 ## License
 
