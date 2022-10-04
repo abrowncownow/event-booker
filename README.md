@@ -1,4 +1,4 @@
-# event-booker
+# ShowHero
 
 ## Description
 
