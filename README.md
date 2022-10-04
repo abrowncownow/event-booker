@@ -6,9 +6,9 @@ The team decided to create a web page to search for local events. Our motivation
 
 ## Credits
 
-https://www.youtube.com/watch?v=qvn2SxGvyPsl.
+Developed by Pat Lubak, Alex Brown, Thair Ibadi, and Eduardo Figueroa. CSS framework provided by [bulma](https://bulma.io/). Color pallete generated on [colormind](colormind.io). Favicon provided by [flaticon](flaticon.com).
 
-https://bulma.io/
+
 
 ## License
 
