@@ -148,13 +148,14 @@ function displayRooms() {
     }
 }
 function bookRoom(i) {
-    window.location.href =
+    var bookURL =
         "https://www.airbnb.com/rooms/plus/" +
         rooms[i].id +
         "?adults=1&check_in=" +
         checkin +
         "&check_out=" +
         checkout;
+    window.open(bookURL, "_blank");
 }
 
 function displayEvents() {
@@ -200,8 +201,8 @@ function selectEvent(data) {
 
 function getTickets() {
     console.log(eventSelected);
-    if (eventSelected.stats.visible_listing_count > 1) {location.href = eventSelected.url;}
-    else{location.href = eventSelected.venue.url;}
+    if (eventSelected.stats.visible_listing_count > 1) {window.open(eventSelected.url,"_blank");}
+    else{window.open(eventSelected.venue.url,"_blank");}
 }
 
 function showHero() {
