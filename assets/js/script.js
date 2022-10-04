@@ -188,6 +188,7 @@ function displayEvents() {
             );
         }
         $("#" + i).text("Select Event");
+        $("#" + i).attr("onclick", "selectEvent(" + i + ")");
     }
     $(".is-ancestor").show();
 }
